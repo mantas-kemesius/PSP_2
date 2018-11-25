@@ -39,8 +39,9 @@ public class CarController {
         Car editCar = carService.editCar(id, car);
         if(car != null) {
             return new ResponseEntity<>(editCar, HttpStatus.ACCEPTED);
+        }else {
+            return new ResponseEntity<>("Car not exist!", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>("Car not exist!", HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/cars/{id}")
@@ -48,8 +49,9 @@ public class CarController {
         Car car = carService.deleteCar(id);
         if(car != null) {
             return new ResponseEntity<>("Car was successfully deleted!", HttpStatus.ACCEPTED);
+        }else {
+            return new ResponseEntity<>("Car not exist!", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>("Car not exist!", HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/import/cars")

@@ -19,4 +19,13 @@ public class CarServiceSportType extends CarService {
 
         return sportCars;
     }
+
+    @Override
+    public Car getCarById(int id){
+        Car car = super.getCarById(id);
+        if( car != null) {
+            return car.getType().equals("Sport")? car : null;
+        }
+        return null;
+    }
 }

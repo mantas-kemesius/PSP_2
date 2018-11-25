@@ -56,8 +56,8 @@ public abstract class CarService implements CarServiceInterface {
         Car car = getCarById(id);
         if(car != null) {
             carRepository.delete(car);
+            return car;
         }
-
         return null;
     }
 
