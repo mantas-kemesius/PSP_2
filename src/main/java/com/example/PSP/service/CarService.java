@@ -24,7 +24,8 @@ public abstract class CarService implements CarServiceInterface {
 
     public Car addNewCar(Car car)
     {
-        int id = getAllCars().size();
+        List<Car> cars = (List<Car>)carRepository.findAll();
+        int id = cars.size();
         car.setId(id);
         carRepository.save(car);
         return car;

@@ -10,12 +10,6 @@ import java.util.List;
 public class CarServiceFamilyType extends CarService{
 
     @Override
-    public Car addNewCar(Car car) {
-        car.setType("Family");
-        return super.addNewCar(car);
-    }
-
-    @Override
     public List<Car> getAllCars() {
         List <Car> cars = super.getAllCars();
         List <Car> sportCars = new ArrayList<>();
