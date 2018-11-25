@@ -2,6 +2,7 @@ package com.example.PSP.controller;
 
 import com.example.PSP.model.Car;
 import com.example.PSP.service.CarService;
+import com.example.PSP.service.CarServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,12 +11,8 @@ import java.util.List;
 @RestController
 public class CarController {
 
-    private final CarService carService;
-
     @Autowired
-    public CarController(CarService carService) {
-        this.carService = carService;
-    }
+    private CarServiceInterface carService;
 
     @GetMapping("/cars")
     public List<Car> getAll() {
