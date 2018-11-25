@@ -1,10 +1,6 @@
-package com.example.PSP.model;
+package com.example.PSP.bean;
 
-import javax.persistence.*;
-
-@DiscriminatorColumn
-public abstract class Car {
-    @Id
+public class FamilyCarCommand {
     private Integer id;
     private String model;
     private String brand;
