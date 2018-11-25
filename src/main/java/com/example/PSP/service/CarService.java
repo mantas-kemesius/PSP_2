@@ -24,8 +24,6 @@ public abstract class CarService implements CarServiceInterface {
             return car;
         }
         return null;
-
-
     }
 
     public Car addNewCar(Car car)
