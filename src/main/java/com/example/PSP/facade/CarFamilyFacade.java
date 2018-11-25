@@ -1,7 +1,6 @@
 package com.example.PSP.facade;
 
 import com.example.PSP.bean.FamilyCarCommand;
-import com.example.PSP.factory.FamilyCarFactory;
 import com.example.PSP.model.Car;
 import com.example.PSP.repository.CarRepository;
 import com.example.PSP.service.CarService;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CarFamilyFacade implements CarFacade<FamilyCarCommand> {
+public class CarFamilyFacade implements CarFacade {
     @Autowired
     private CarRepository carRepository;
 
@@ -30,8 +29,8 @@ public class CarFamilyFacade implements CarFacade<FamilyCarCommand> {
     }
 
     @Override
-    public Car createCar(FamilyCarCommand car) {
-        return carRepository.save(FamilyCarFactory.create(car));
+    public Car createCar(Car car) {
+        return carRepository.save(car);
     }
 
     @Override
