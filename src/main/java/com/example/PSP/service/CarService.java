@@ -19,7 +19,13 @@ public abstract class CarService implements CarServiceInterface {
     }
 
     public Car getCarById(int id){
-        return getAllCars().get(id);
+        Car car = carRepository.findById(id).orElse(null);
+        if( car != null) {
+            return car;
+        }
+        return null;
+
+
     }
 
     public Car addNewCar(Car car)
@@ -28,6 +34,7 @@ public abstract class CarService implements CarServiceInterface {
         int id = cars.size();
         car.setId(id);
         carRepository.save(car);
+
         return car;
     }
 
@@ -48,9 +55,12 @@ public abstract class CarService implements CarServiceInterface {
 
     public Car deleteCar(int id)
     {
-        Car car = getAllCars().get(id);
-        carRepository.delete(car);
-        return car;
+        Car car = getCarById(id);
+        if(car != null) {
+            carRepository.delete(car);
+        }
+
+        return null;
     }
 
     public List<Car> importAllCars()
