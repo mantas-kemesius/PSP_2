@@ -3,7 +3,8 @@ package com.example.PSP.model;
 import javax.persistence.*;
 
 @DiscriminatorColumn
-public abstract class Car {
+@Entity
+public class Car {
     @Id
     private Integer id;
     private String model;

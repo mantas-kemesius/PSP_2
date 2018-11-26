@@ -11,4 +11,5 @@ public interface CarFacade {
     Car createCar(Car car);
     Car updateCar(Car car);
     void deleteCar(int id);
+    void importCars();
 }

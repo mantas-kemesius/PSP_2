@@ -2,11 +2,8 @@ package com.example.PSP.controller;
 
 import com.example.PSP.facade.CarFacade;
 import com.example.PSP.model.Car;
-import com.example.PSP.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +16,7 @@ public class CarFamilyController {
     private CarFacade carFacade;
 
     @GetMapping
-    public List<Car> getAll() {
+    public List getAll() {
         return carFacade.getAllCars();
     }
 
@@ -35,12 +32,18 @@ public class CarFamilyController {
     }
 
     @PutMapping("/{id}")
-    public Car updateCar(@PathVariable Integer id, @RequestBody Car car){
+    public Car updateCar(@RequestBody Car car){
+
         return carFacade.updateCar(car);
     }
 
     @DeleteMapping("/{id}")
     public void deleteCar(@PathVariable Integer id) {
         carFacade.deleteCar(id);
+    }
+
+    @GetMapping("/import")
+    public void importCars() {
+        carFacade.importCars();
     }
 }
